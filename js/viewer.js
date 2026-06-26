@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
 const viewportEl = document.getElementById("viewport");
@@ -33,10 +33,12 @@ function initThree() {
   camera = new THREE.PerspectiveCamera(45, 1, 0.01, 1000);
   camera.position.set(2, 1.6, 2.4);
 
-  controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.08;
-  controls.rotateSpeed = 0.8;
+  controls = new TrackballControls(camera, renderer.domElement);
+  controls.rotateSpeed = 3.0;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.staticMoving = false;
+  controls.dynamicDampingFactor = 0.15;
 
   // Light, neutral lighting for a white background scene
   const hemi = new THREE.HemisphereLight(0xffffff, 0xcfcfcf, 1.2);
@@ -71,6 +73,7 @@ function onResize() {
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
+  if (controls && controls.handleResize) controls.handleResize();
 }
 
 function animate() {
