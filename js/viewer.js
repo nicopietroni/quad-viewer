@@ -28,7 +28,7 @@ function initThree() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   scene = new THREE.Scene();
-  scene.background = null;
+  scene.background = new THREE.Color(0xffffff);
 
   camera = new THREE.PerspectiveCamera(45, 1, 0.01, 1000);
   camera.position.set(2, 1.6, 2.4);
