@@ -1,6 +1,6 @@
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js";
-import { OBJLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/OBJLoader.js";
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
 const viewportEl = document.getElementById("viewport");
 const loadingOverlay = document.getElementById("loading-overlay");
@@ -19,7 +19,8 @@ let renderer, scene, camera, controls;
 let currentGroup = null; // currently displayed THREE.Group
 let currentMode = "quad";
 let currentMeshEntry = null;
-const objCache = new Map(); // url -> parsed THREE.Group (unattached, cached)
+const objCache = new Map(); // url -> parsed THREE.Group (unattached, cached, from OBJLoader)
+const faceCache = new Map(); // url -> { vertices: Float32Array, faces: number[][] } from custom text parse
 const groupCacheForEntry = new Map(); // `${entry.id}:${mode}` -> built THREE.Group (materials applied)
 
 function initThree() {
@@ -37,12 +38,13 @@ function initThree() {
   controls.dampingFactor = 0.08;
   controls.rotateSpeed = 0.8;
 
-  const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 1.1);
+  // Light, neutral lighting for a white background scene
+  const hemi = new THREE.HemisphereLight(0xffffff, 0xcfcfcf, 1.2);
   scene.add(hemi);
-  const dir1 = new THREE.DirectionalLight(0xffffff, 0.9);
+  const dir1 = new THREE.DirectionalLight(0xffffff, 0.7);
   dir1.position.set(3, 5, 4);
   scene.add(dir1);
-  const dir2 = new THREE.DirectionalLight(0xffffff, 0.35);
+  const dir2 = new THREE.DirectionalLight(0xffffff, 0.4);
   dir2.position.set(-4, -2, -3);
   scene.add(dir2);
 
@@ -65,6 +67,7 @@ function onResize() {
   const wrap = document.getElementById("viewport-wrap");
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
+  if (w === 0 || h === 0) return; // avoid setting a degenerate size during layout shifts
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
@@ -76,55 +79,187 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// ---- Mode "quad": flat-shaded solid + faint wireframe overlay ----
-function buildSolidGroup(rawGroup) {
+// ---------------------------------------------------------------------
+// Custom lightweight OBJ text parser.
+// We only need vertex positions and the ORIGINAL face vertex count
+// (3, 4, or more) so we can draw the true polygon perimeter as a line
+// loop, instead of relying on Three.js's internal triangulation (which
+// would add a visible diagonal across every quad).
+// ---------------------------------------------------------------------
+async function parseOBJFaces(url) {
+  if (faceCache.has(url)) return faceCache.get(url);
+
+  const res = await fetch(url);
+  const text = await res.text();
+
+  const vertices = [];
+  const faces = []; // each entry: array of 0-based vertex indices, in original order
+
+  const lines = text.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.charCodeAt(0) === 118 && line.charCodeAt(1) === 32) {
+      // "v "
+      const parts = line.trim().split(/\s+/);
+      vertices.push(
+        parseFloat(parts[1]),
+        parseFloat(parts[2]),
+        parseFloat(parts[3])
+      );
+    } else if (line.charCodeAt(0) === 102 && line.charCodeAt(1) === 32) {
+      // "f "
+      const parts = line.trim().split(/\s+/);
+      const idx = [];
+      for (let p = 1; p < parts.length; p++) {
+        const vIdxStr = parts[p].split("/")[0];
+        let vIdx = parseInt(vIdxStr, 10);
+        if (vIdx < 0) {
+          // negative indices are relative to the current end of the vertex list
+          vIdx = vertices.length / 3 + vIdx + 1;
+        }
+        idx.push(vIdx - 1); // OBJ is 1-indexed
+      }
+      faces.push(idx);
+    }
+  }
+
+  const result = { vertices: new Float32Array(vertices), faces };
+  faceCache.set(url, result);
+  return result;
+}
+
+function buildPerimeterLineSegments(parsed, color) {
+  const { vertices, faces } = parsed;
+  const positions = [];
+
+  for (const face of faces) {
+    const n = face.length;
+    if (n < 2) continue;
+    for (let i = 0; i < n; i++) {
+      const a = face[i];
+      const b = face[(i + 1) % n];
+      positions.push(
+        vertices[a * 3], vertices[a * 3 + 1], vertices[a * 3 + 2],
+        vertices[b * 3], vertices[b * 3 + 1], vertices[b * 3 + 2]
+      );
+    }
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  const mat = new THREE.LineBasicMaterial({ color });
+  return new THREE.LineSegments(geo, mat);
+}
+
+// For an already-triangulated mesh (primal/dual layout files), the true
+// patch borders are edges shared by exactly ONE triangle -- internal
+// edges (the diagonals from triangulating each patch) are shared by two
+// triangles and must NOT be drawn.
+function buildBoundaryLineSegments(parsed, color) {
+  const { vertices, faces } = parsed;
+  const edgeCount = new Map(); // "a_b" (a<b) -> count
+
+  for (const face of faces) {
+    const n = face.length;
+    for (let i = 0; i < n; i++) {
+      const a = face[i];
+      const b = face[(i + 1) % n];
+      const key = a < b ? `${a}_${b}` : `${b}_${a}`;
+      edgeCount.set(key, (edgeCount.get(key) || 0) + 1);
+    }
+  }
+
+  const positions = [];
+  for (const [key, count] of edgeCount) {
+    if (count !== 1) continue;
+    const [aStr, bStr] = key.split("_");
+    const a = parseInt(aStr, 10);
+    const b = parseInt(bStr, 10);
+    positions.push(
+      vertices[a * 3], vertices[a * 3 + 1], vertices[a * 3 + 2],
+      vertices[b * 3], vertices[b * 3 + 1], vertices[b * 3 + 2]
+    );
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  const mat = new THREE.LineBasicMaterial({ color });
+  return new THREE.LineSegments(geo, mat);
+}
+
+// ---- Mode "quad": flat-shaded triangulated solid + true quad-perimeter wireframe ----
+async function buildQuadGroup(url) {
   const group = new THREE.Group();
 
-  rawGroup.traverse((child) => {
+  const loader = new OBJLoader();
+  const raw = await loader.loadAsync(url);
+  raw.traverse((child) => {
     if (child.isMesh && child.geometry) {
       const geo = child.geometry.clone();
       geo.computeVertexNormals();
-
       const solidMat = new THREE.MeshStandardMaterial({
-        color: 0xb8bcb9,
+        color: 0x6b756e,
         flatShading: true,
         roughness: 1.0,
         metalness: 0.0,
         side: THREE.DoubleSide,
+        polygonOffset: true,
+        polygonOffsetFactor: 1,
+        polygonOffsetUnits: 1,
       });
       group.add(new THREE.Mesh(geo, solidMat));
-
-      const wireGeo = new THREE.WireframeGeometry(geo);
-      const wireMat = new THREE.LineBasicMaterial({
-        color: 0x2a2a2a,
-        transparent: true,
-        opacity: 0.55,
-      });
-      group.add(new THREE.LineSegments(wireGeo, wireMat));
     }
   });
+
+  const parsed = await parseOBJFaces(url);
+  const perimeter = buildPerimeterLineSegments(parsed, 0x1c1c1a);
+  group.add(perimeter);
 
   return group;
 }
 
-// ---- Mode "primal"/"dual": edges only (patch borders), no solid fill ----
-function buildEdgesOnlyGroup(rawGroup, color) {
+// ---- Mode "primal"/"dual": flat-shaded solid + true polygon-perimeter edges in black ----
+async function buildLayoutGroup(url, solidColor) {
   const group = new THREE.Group();
 
-  rawGroup.traverse((child) => {
+  const loader = new OBJLoader();
+  const raw = await loader.loadAsync(url);
+  let hasMeshGeometry = false;
+
+  raw.traverse((child) => {
     if (child.isMesh && child.geometry) {
-      const wireGeo = new THREE.WireframeGeometry(child.geometry);
-      const wireMat = new THREE.LineBasicMaterial({
-        color,
-        transparent: false,
+      hasMeshGeometry = true;
+      const geo = child.geometry.clone();
+      geo.computeVertexNormals();
+      const solidMat = new THREE.MeshStandardMaterial({
+        color: solidColor,
+        flatShading: true,
+        roughness: 1.0,
+        metalness: 0.0,
+        side: THREE.DoubleSide,
+        polygonOffset: true,
+        polygonOffsetFactor: 1,
+        polygonOffsetUnits: 1,
       });
-      group.add(new THREE.LineSegments(wireGeo, wireMat));
-    } else if (child.isLine || child.isLineSegments) {
-      // OBJLoader may produce line objects if the file has only edges ("l" elements)
-      const mat = new THREE.LineBasicMaterial({ color });
-      group.add(new THREE.LineSegments(child.geometry, mat));
+      group.add(new THREE.Mesh(geo, solidMat));
     }
   });
+
+  const parsed = await parseOBJFaces(url);
+
+  if (parsed.faces.length > 0) {
+    // Patch borders = edges shared by exactly one triangle, drawn in black
+    const boundary = buildBoundaryLineSegments(parsed, 0x000000);
+    group.add(boundary);
+  } else if (!hasMeshGeometry) {
+    // File has no "f" lines at all -- it's pure edge data ("l" elements).
+    raw.traverse((child) => {
+      if (child.isLine || child.isLineSegments) {
+        const mat = new THREE.LineBasicMaterial({ color: 0x000000 });
+        group.add(new THREE.LineSegments(child.geometry, mat));
+      }
+    });
+  }
 
   return group;
 }
@@ -148,16 +283,6 @@ function frameCameraOnObject(object) {
   camera.far = dist * 100;
   camera.updateProjectionMatrix();
   controls.update();
-}
-
-async function loadOBJCached(url) {
-  if (objCache.has(url)) {
-    return objCache.get(url).clone();
-  }
-  const loader = new OBJLoader();
-  const raw = await loader.loadAsync(url);
-  objCache.set(url, raw);
-  return raw.clone();
 }
 
 function clearCurrent() {
@@ -187,14 +312,13 @@ async function buildGroupForMode(entry, mode) {
   const url = entry[MODE_FIELD[mode]];
   if (!url) return null;
 
-  const raw = await loadOBJCached(url);
   let group;
   if (mode === "quad") {
-    group = buildSolidGroup(raw);
+    group = await buildQuadGroup(url);
   } else if (mode === "primal") {
-    group = buildEdgesOnlyGroup(raw, 0xe8a23d); // amber for primal patch borders
+    group = await buildLayoutGroup(url, 0xd99b3a); // amber for primal patches (darkened for white bg)
   } else {
-    group = buildEdgesOnlyGroup(raw, 0x7fd9b6); // accent green for dual
+    group = await buildLayoutGroup(url, 0x4fa583); // green for dual patches (darkened for white bg)
   }
 
   groupCacheForEntry.set(cacheKey, group);
