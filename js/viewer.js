@@ -19,6 +19,7 @@ let renderer, scene, camera, controls;
 let currentGroup = null; // currently displayed THREE.Group
 let currentMode = "quad";
 let currentMeshEntry = null;
+let latestRequestId = 0; // incremented on every loadMesh/setMode call; used to discard stale async results
 const objCache = new Map(); // url -> parsed THREE.Group (unattached, cached, from OBJLoader)
 const faceCache = new Map(); // url -> { vertices: Float32Array, faces: number[][] } from custom text parse
 const groupCacheForEntry = new Map(); // `${entry.id}:${mode}` -> built THREE.Group (materials applied)
@@ -336,10 +337,12 @@ export async function setMode(mode) {
     return;
   }
 
+  const requestId = ++latestRequestId;
   loadingOverlay.classList.add("visible");
   try {
     const group = await buildGroupForMode(currentMeshEntry, mode);
     if (!group) return;
+    if (requestId !== latestRequestId) return; // a newer request superseded this one
 
     clearCurrent();
     currentGroup = group;
@@ -350,19 +353,20 @@ export async function setMode(mode) {
   } catch (err) {
     console.error("Failed to switch mode", mode, err);
   } finally {
-    loadingOverlay.classList.remove("visible");
+    if (requestId === latestRequestId) {
+      loadingOverlay.classList.remove("visible");
+    }
   }
 }
 
 export async function loadMesh(entry) {
+  const requestId = ++latestRequestId;
   currentMeshEntry = entry;
   emptyViewport.style.display = "none";
   loadingOverlay.classList.add("visible");
   meshNameEl.textContent = entry.name;
 
   try {
-    clearCurrent();
-
     // Prefer quad as default view; fall back to primal, then dual.
     const preferredOrder = ["quad", "primal", "dual"];
     const firstAvailable = preferredOrder.find((m) => entry[MODE_FIELD[m]]);
@@ -372,6 +376,11 @@ export async function loadMesh(entry) {
     }
 
     const group = await buildGroupForMode(entry, firstAvailable);
+
+    // Discard this result if a newer load request has started in the meantime.
+    if (requestId !== latestRequestId) return;
+
+    clearCurrent();
     currentGroup = group;
     currentMode = firstAvailable;
     scene.add(currentGroup);
@@ -380,7 +389,9 @@ export async function loadMesh(entry) {
   } catch (err) {
     console.error("Failed to load mesh", entry, err);
   } finally {
-    loadingOverlay.classList.remove("visible");
+    if (requestId === latestRequestId) {
+      loadingOverlay.classList.remove("visible");
+    }
   }
 }
 
