@@ -198,7 +198,7 @@ async function buildQuadGroup(url) {
       const geo = child.geometry.clone();
       geo.computeVertexNormals();
       const solidMat = new THREE.MeshStandardMaterial({
-        color: 0x9aa39c,
+        color: 0xc7cbc8,
         flatShading: true,
         roughness: 1.0,
         metalness: 0.0,
