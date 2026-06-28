@@ -625,12 +625,12 @@
       "thumbnail": "./meshes/thumbnails/aquadom_remesh.png"
     },
     {
-      "id": "armadillo_remesh",
-      "name": "armadillo_remesh",
-      "quad": "./meshes/armadillo_remesh_quad.obj",
-      "primal": "./meshes/armadillo_remesh_primal_layout.obj",
-      "dual": "./meshes/armadillo_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/armadillo_remesh.png"
+      "id": "armadillo",
+      "name": "armadillo",
+      "quad": "./meshes/armadillo_quad.obj",
+      "primal": "./meshes/armadillo_primal_layout.obj",
+      "dual": "./meshes/armadillo_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/armadillo.png"
     },
     {
       "id": "armchair_remesh",
@@ -921,12 +921,12 @@
       "thumbnail": "./meshes/thumbnails/cad5-tri_remesh.png"
     },
     {
-      "id": "camel-tri_remesh",
-      "name": "camel-tri_remesh",
-      "quad": "./meshes/camel-tri_remesh_quad.obj",
-      "primal": "./meshes/camel-tri_remesh_primal_layout.obj",
-      "dual": "./meshes/camel-tri_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/camel-tri_remesh.png"
+      "id": "camel-tri",
+      "name": "camel-tri",
+      "quad": "./meshes/camel-tri_quad.obj",
+      "primal": "./meshes/camel-tri_primal_layout.obj",
+      "dual": "./meshes/camel-tri_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/camel-tri.png"
     },
     {
       "id": "camille_hand_remesh",
@@ -1121,20 +1121,20 @@
       "thumbnail": "./meshes/thumbnails/dancer2_remesh.png"
     },
     {
-      "id": "dancer_25k_remesh",
-      "name": "dancer_25k_remesh",
-      "quad": "./meshes/dancer_25k_remesh_quad.obj",
-      "primal": "./meshes/dancer_25k_remesh_primal_layout.obj",
-      "dual": "./meshes/dancer_25k_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/dancer_25k_remesh.png"
+      "id": "dancer_25k",
+      "name": "dancer_25k",
+      "quad": "./meshes/dancer_25k_quad.obj",
+      "primal": "./meshes/dancer_25k_primal_layout.obj",
+      "dual": "./meshes/dancer_25k_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/dancer_25k.png"
     },
     {
-      "id": "dancer_remesh",
-      "name": "dancer_remesh",
-      "quad": "./meshes/dancer_remesh_quad.obj",
-      "primal": "./meshes/dancer_remesh_primal_layout.obj",
-      "dual": "./meshes/dancer_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/dancer_remesh.png"
+      "id": "dancer",
+      "name": "dancer",
+      "quad": "./meshes/dancer_quad.obj",
+      "primal": "./meshes/dancer_primal_layout.obj",
+      "dual": "./meshes/dancer_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/dancer.png"
     },
     {
       "id": "dancing_children100K_remesh",
@@ -1169,12 +1169,12 @@
       "thumbnail": "./meshes/thumbnails/deckel_remesh.png"
     },
     {
-      "id": "deformed_armadillo_remesh",
-      "name": "deformed_armadillo_remesh",
-      "quad": "./meshes/deformed_armadillo_remesh_quad.obj",
-      "primal": "./meshes/deformed_armadillo_remesh_primal_layout.obj",
-      "dual": "./meshes/deformed_armadillo_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/deformed_armadillo_remesh.png"
+      "id": "deformed_armadillo",
+      "name": "deformed_armadillo",
+      "quad": "./meshes/deformed_armadillo_quad.obj",
+      "primal": "./meshes/deformed_armadillo_primal_layout.obj",
+      "dual": "./meshes/deformed_armadillo_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/deformed_armadillo.png"
     },
     {
       "id": "delta_arm2_remesh_remesh",
@@ -1233,12 +1233,12 @@
       "thumbnail": "./meshes/thumbnails/dilo_remesh.png"
     },
     {
-      "id": "dino0_remesh",
-      "name": "dino0_remesh",
-      "quad": "./meshes/dino0_remesh_quad.obj",
-      "primal": "./meshes/dino0_remesh_primal_layout.obj",
-      "dual": "./meshes/dino0_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/dino0_remesh.png"
+      "id": "dino0",
+      "name": "dino0",
+      "quad": "./meshes/dino0_quad.obj",
+      "primal": "./meshes/dino0_primal_layout.obj",
+      "dual": "./meshes/dino0_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/dino0.png"
     },
     {
       "id": "dino1_remesh",
@@ -1745,12 +1745,12 @@
       "thumbnail": "./meshes/thumbnails/lever_arm_remesh.png"
     },
     {
-      "id": "lion_recon_50K_remesh",
-      "name": "lion_recon_50K_remesh",
-      "quad": "./meshes/lion_recon_50K_remesh_quad.obj",
-      "primal": "./meshes/lion_recon_50K_remesh_primal_layout.obj",
-      "dual": "./meshes/lion_recon_50K_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/lion_recon_50K_remesh.png"
+      "id": "lion_recon_50K",
+      "name": "lion_recon_50K",
+      "quad": "./meshes/lion_recon_50K_quad.obj",
+      "primal": "./meshes/lion_recon_50K_primal_layout.obj",
+      "dual": "./meshes/lion_recon_50K_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/lion_recon_50K.png"
     },
     {
       "id": "lion_remesh",
