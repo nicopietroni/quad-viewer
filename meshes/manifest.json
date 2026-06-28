@@ -577,14 +577,6 @@
       "thumbnail": "./meshes/thumbnails/Vertebrae.png"
     },
     {
-      "id": "Vertebrae_remesh",
-      "name": "Vertebrae_remesh",
-      "quad": "./meshes/Vertebrae_remesh_quad.obj",
-      "primal": "./meshes/Vertebrae_remesh_primal_layout.obj",
-      "dual": "./meshes/Vertebrae_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/Vertebrae_remesh.png"
-    },
-    {
       "id": "WheelDassault_remesh",
       "name": "WheelDassault_remesh",
       "quad": "./meshes/WheelDassault_remesh_quad.obj",
@@ -697,14 +689,6 @@
       "thumbnail": "./meshes/thumbnails/bearing_plate.png"
     },
     {
-      "id": "bearing_plate_remesh",
-      "name": "bearing_plate_remesh",
-      "quad": "./meshes/bearing_plate_remesh_quad.obj",
-      "primal": "./meshes/bearing_plate_remesh_primal_layout.obj",
-      "dual": "./meshes/bearing_plate_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/bearing_plate_remesh.png"
-    },
-    {
       "id": "beetle_remesh",
       "name": "beetle_remesh",
       "quad": "./meshes/beetle_remesh_quad.obj",
@@ -793,22 +777,6 @@
       "thumbnail": "./meshes/thumbnails/blockLP_remesh.png"
     },
     {
-      "id": "boat-artmesh_remesh",
-      "name": "boat-artmesh_remesh",
-      "quad": "./meshes/boat-artmesh_remesh_quad.obj",
-      "primal": "./meshes/boat-artmesh_remesh_primal_layout.obj",
-      "dual": "./meshes/boat-artmesh_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/boat-artmesh_remesh.png"
-    },
-    {
-      "id": "boat-artmesh_remesh2",
-      "name": "boat-artmesh_remesh2",
-      "quad": "./meshes/boat-artmesh_remesh2_quad.obj",
-      "primal": "./meshes/boat-artmesh_remesh2_primal_layout.obj",
-      "dual": "./meshes/boat-artmesh_remesh2_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/boat-artmesh_remesh2.png"
-    },
-    {
       "id": "boat_original_remesh",
       "name": "boat_original_remesh",
       "quad": "./meshes/boat_original_remesh_quad.obj",
@@ -823,14 +791,6 @@
       "primal": "./meshes/boat_remesh_primal_layout.obj",
       "dual": "./meshes/boat_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/boat_remesh.png"
-    },
-    {
-      "id": "bolt_remesh",
-      "name": "bolt_remesh",
-      "quad": "./meshes/bolt_remesh_quad.obj",
-      "primal": "./meshes/bolt_remesh_primal_layout.obj",
-      "dual": "./meshes/bolt_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/bolt_remesh.png"
     },
     {
       "id": "bolt_remesh_2",
@@ -889,14 +849,6 @@
       "thumbnail": "./meshes/thumbnails/bozbezbozzel50K_remesh.png"
     },
     {
-      "id": "brain_remesh",
-      "name": "brain_remesh",
-      "quad": "./meshes/brain_remesh_quad.obj",
-      "primal": "./meshes/brain_remesh_primal_layout.obj",
-      "dual": "./meshes/brain_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/brain_remesh.png"
-    },
-    {
       "id": "british",
       "name": "british",
       "quad": "./meshes/british_quad.obj",
@@ -937,14 +889,6 @@
       "thumbnail": "./meshes/thumbnails/bumpy_torus_remesh.png"
     },
     {
-      "id": "bunny_alessia_remesh",
-      "name": "bunny_alessia_remesh",
-      "quad": "./meshes/bunny_alessia_remesh_quad.obj",
-      "primal": "./meshes/bunny_alessia_remesh_primal_layout.obj",
-      "dual": "./meshes/bunny_alessia_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/bunny_alessia_remesh.png"
-    },
-    {
       "id": "bunny_remesh",
       "name": "bunny_remesh",
       "quad": "./meshes/bunny_remesh_quad.obj",
@@ -959,14 +903,6 @@
       "primal": "./meshes/buste_remesh_primal_layout.obj",
       "dual": "./meshes/buste_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/buste_remesh.png"
-    },
-    {
-      "id": "busto_bimba_remesh",
-      "name": "busto_bimba_remesh",
-      "quad": "./meshes/busto_bimba_remesh_quad.obj",
-      "primal": "./meshes/busto_bimba_remesh_primal_layout.obj",
-      "dual": "./meshes/busto_bimba_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/busto_bimba_remesh.png"
     },
     {
       "id": "cactus_remesh",
@@ -1153,14 +1089,6 @@
       "thumbnail": "./meshes/thumbnails/cube_remesh.png"
     },
     {
-      "id": "cup-tri_remesh",
-      "name": "cup-tri_remesh",
-      "quad": "./meshes/cup-tri_remesh_quad.obj",
-      "primal": "./meshes/cup-tri_remesh_primal_layout.obj",
-      "dual": "./meshes/cup-tri_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/cup-tri_remesh.png"
-    },
-    {
       "id": "cup_remesh",
       "name": "cup_remesh",
       "quad": "./meshes/cup_remesh_quad.obj",
@@ -1217,14 +1145,6 @@
       "thumbnail": "./meshes/thumbnails/dancing_children100K_remesh.png"
     },
     {
-      "id": "dancing_children_remesh",
-      "name": "dancing_children_remesh",
-      "quad": "./meshes/dancing_children_remesh_quad.obj",
-      "primal": "./meshes/dancing_children_remesh_primal_layout.obj",
-      "dual": "./meshes/dancing_children_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/dancing_children_remesh.png"
-    },
-    {
       "id": "datatech_2_remesh",
       "name": "datatech_2_remesh",
       "quad": "./meshes/datatech_2_remesh_quad.obj",
@@ -1271,14 +1191,6 @@
       "primal": "./meshes/delta_arm_base_remesh_primal_layout.obj",
       "dual": "./meshes/delta_arm_base_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/delta_arm_base_remesh.png"
-    },
-    {
-      "id": "delta_arm_base_remesh_remesh",
-      "name": "delta_arm_base_remesh_remesh",
-      "quad": "./meshes/delta_arm_base_remesh_remesh_quad.obj",
-      "primal": "./meshes/delta_arm_base_remesh_remesh_primal_layout.obj",
-      "dual": "./meshes/delta_arm_base_remesh_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/delta_arm_base_remesh_remesh.png"
     },
     {
       "id": "delta_arm_end_effector_remesh_remesh",
@@ -1361,14 +1273,6 @@
       "thumbnail": "./meshes/thumbnails/doubletorus_remesh.png"
     },
     {
-      "id": "dragon0_remesh",
-      "name": "dragon0_remesh",
-      "quad": "./meshes/dragon0_remesh_quad.obj",
-      "primal": "./meshes/dragon0_remesh_primal_layout.obj",
-      "dual": "./meshes/dragon0_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/dragon0_remesh.png"
-    },
-    {
       "id": "dragonstand_recon100K_remesh",
       "name": "dragonstand_recon100K_remesh",
       "quad": "./meshes/dragonstand_recon100K_remesh_quad.obj",
@@ -1423,22 +1327,6 @@
       "primal": "./meshes/elk_remesh_primal_layout.obj",
       "dual": "./meshes/elk_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/elk_remesh.png"
-    },
-    {
-      "id": "ellipse",
-      "name": "ellipse",
-      "quad": "./meshes/ellipse_quad.obj",
-      "primal": "./meshes/ellipse_primal_layout.obj",
-      "dual": "./meshes/ellipse_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/ellipse.png"
-    },
-    {
-      "id": "ellipse_remesh",
-      "name": "ellipse_remesh",
-      "quad": "./meshes/ellipse_remesh_quad.obj",
-      "primal": "./meshes/ellipse_remesh_primal_layout.obj",
-      "dual": "./meshes/ellipse_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/ellipse_remesh.png"
     },
     {
       "id": "eraser_ball_remesh",
@@ -1601,14 +1489,6 @@
       "thumbnail": "./meshes/thumbnails/grayloc_remesh.png"
     },
     {
-      "id": "greek_remesh",
-      "name": "greek_remesh",
-      "quad": "./meshes/greek_remesh_quad.obj",
-      "primal": "./meshes/greek_remesh_primal_layout.obj",
-      "dual": "./meshes/greek_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/greek_remesh.png"
-    },
-    {
       "id": "greek_sculpture_remesh",
       "name": "greek_sculpture_remesh",
       "quad": "./meshes/greek_sculpture_remesh_quad.obj",
@@ -1631,14 +1511,6 @@
       "primal": "./meshes/gyroidpuzzle_remesh_primal_layout.obj",
       "dual": "./meshes/gyroidpuzzle_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/gyroidpuzzle_remesh.png"
-    },
-    {
-      "id": "halved_oblique_scarf_1_remesh",
-      "name": "halved_oblique_scarf_1_remesh",
-      "quad": "./meshes/halved_oblique_scarf_1_remesh_quad.obj",
-      "primal": "./meshes/halved_oblique_scarf_1_remesh_primal_layout.obj",
-      "dual": "./meshes/halved_oblique_scarf_1_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/halved_oblique_scarf_1_remesh.png"
     },
     {
       "id": "halved_oblique_scarf_2_remesh",
@@ -1711,14 +1583,6 @@
       "primal": "./meshes/holes2_remesh_primal_layout.obj",
       "dual": "./meshes/holes2_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/holes2_remesh.png"
-    },
-    {
-      "id": "holes3_remesh",
-      "name": "holes3_remesh",
-      "quad": "./meshes/holes3_remesh_quad.obj",
-      "primal": "./meshes/holes3_remesh_primal_layout.obj",
-      "dual": "./meshes/holes3_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/holes3_remesh.png"
     },
     {
       "id": "homer_remesh",
@@ -1801,14 +1665,6 @@
       "thumbnail": "./meshes/thumbnails/israel_remesh.png"
     },
     {
-      "id": "jbs_003_remesh",
-      "name": "jbs_003_remesh",
-      "quad": "./meshes/jbs_003_remesh_quad.obj",
-      "primal": "./meshes/jbs_003_remesh_primal_layout.obj",
-      "dual": "./meshes/jbs_003_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/jbs_003_remesh.png"
-    },
-    {
       "id": "joint_remesh",
       "name": "joint_remesh",
       "quad": "./meshes/joint_remesh_quad.obj",
@@ -1839,14 +1695,6 @@
       "primal": "./meshes/knob_remesh_primal_layout.obj",
       "dual": "./meshes/knob_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/knob_remesh.png"
-    },
-    {
-      "id": "knob_remeshed",
-      "name": "knob_remeshed",
-      "quad": "./meshes/knob_remeshed_quad.obj",
-      "primal": "./meshes/knob_remeshed_primal_layout.obj",
-      "dual": "./meshes/knob_remeshed_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/knob_remeshed.png"
     },
     {
       "id": "knot_remesh",
@@ -1889,14 +1737,6 @@
       "thumbnail": "./meshes/thumbnails/lego_remesh.png"
     },
     {
-      "id": "lenka_new_remesh",
-      "name": "lenka_new_remesh",
-      "quad": "./meshes/lenka_new_remesh_quad.obj",
-      "primal": "./meshes/lenka_new_remesh_primal_layout.obj",
-      "dual": "./meshes/lenka_new_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/lenka_new_remesh.png"
-    },
-    {
       "id": "lever_arm_remesh",
       "name": "lever_arm_remesh",
       "quad": "./meshes/lever_arm_remesh_quad.obj",
@@ -1919,14 +1759,6 @@
       "primal": "./meshes/lion_remesh_primal_layout.obj",
       "dual": "./meshes/lion_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/lion_remesh.png"
-    },
-    {
-      "id": "lock_Lp-tri_remesh",
-      "name": "lock_Lp-tri_remesh",
-      "quad": "./meshes/lock_Lp-tri_remesh_quad.obj",
-      "primal": "./meshes/lock_Lp-tri_remesh_primal_layout.obj",
-      "dual": "./meshes/lock_Lp-tri_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/lock_Lp-tri_remesh.png"
     },
     {
       "id": "lock_Lp_remesh",
@@ -1975,14 +1807,6 @@
       "primal": "./meshes/mask2_primal_layout.obj",
       "dual": "./meshes/mask2_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/mask2.png"
-    },
-    {
-      "id": "mask_remesh",
-      "name": "mask_remesh",
-      "quad": "./meshes/mask_remesh_quad.obj",
-      "primal": "./meshes/mask_remesh_primal_layout.obj",
-      "dual": "./meshes/mask_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/mask_remesh.png"
     },
     {
       "id": "master_cylinder100K_remesh",
@@ -2353,22 +2177,6 @@
       "thumbnail": "./meshes/thumbnails/plate_Lp-tri_remesh.png"
     },
     {
-      "id": "plate_Lp_remesh",
-      "name": "plate_Lp_remesh",
-      "quad": "./meshes/plate_Lp_remesh_quad.obj",
-      "primal": "./meshes/plate_Lp_remesh_primal_layout.obj",
-      "dual": "./meshes/plate_Lp_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/plate_Lp_remesh.png"
-    },
-    {
-      "id": "plate_lp_mid_remesh",
-      "name": "plate_lp_mid_remesh",
-      "quad": "./meshes/plate_lp_mid_remesh_quad.obj",
-      "primal": "./meshes/plate_lp_mid_remesh_primal_layout.obj",
-      "dual": "./meshes/plate_lp_mid_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/plate_lp_mid_remesh.png"
-    },
-    {
       "id": "polygirl_remesh",
       "name": "polygirl_remesh",
       "quad": "./meshes/polygirl_remesh_quad.obj",
@@ -2441,14 +2249,6 @@
       "thumbnail": "./meshes/thumbnails/retinal.png"
     },
     {
-      "id": "retinal_remesh",
-      "name": "retinal_remesh",
-      "quad": "./meshes/retinal_remesh_quad.obj",
-      "primal": "./meshes/retinal_remesh_primal_layout.obj",
-      "dual": "./meshes/retinal_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/retinal_remesh.png"
-    },
-    {
       "id": "rgb_dragon",
       "name": "rgb_dragon",
       "quad": "./meshes/rgb_dragon_quad.obj",
@@ -2457,60 +2257,12 @@
       "thumbnail": "./meshes/thumbnails/rgb_dragon.png"
     },
     {
-      "id": "rgb_dragon_remesh",
-      "name": "rgb_dragon_remesh",
-      "quad": "./meshes/rgb_dragon_remesh_quad.obj",
-      "primal": "./meshes/rgb_dragon_remesh_primal_layout.obj",
-      "dual": "./meshes/rgb_dragon_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/rgb_dragon_remesh.png"
-    },
-    {
-      "id": "robocat_deci",
-      "name": "robocat_deci",
-      "quad": "./meshes/robocat_deci_quad.obj",
-      "primal": "./meshes/robocat_deci_primal_layout.obj",
-      "dual": "./meshes/robocat_deci_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/robocat_deci.png"
-    },
-    {
-      "id": "robocat_deci_remesh",
-      "name": "robocat_deci_remesh",
-      "quad": "./meshes/robocat_deci_remesh_quad.obj",
-      "primal": "./meshes/robocat_deci_remesh_primal_layout.obj",
-      "dual": "./meshes/robocat_deci_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/robocat_deci_remesh.png"
-    },
-    {
-      "id": "rocker_arm",
-      "name": "rocker_arm",
-      "quad": "./meshes/rocker_arm_quad.obj",
-      "primal": "./meshes/rocker_arm_primal_layout.obj",
-      "dual": "./meshes/rocker_arm_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/rocker_arm.png"
-    },
-    {
-      "id": "rocker_arm_remesh",
-      "name": "rocker_arm_remesh",
-      "quad": "./meshes/rocker_arm_remesh_quad.obj",
-      "primal": "./meshes/rocker_arm_remesh_primal_layout.obj",
-      "dual": "./meshes/rocker_arm_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/rocker_arm_remesh.png"
-    },
-    {
       "id": "rockerarm",
       "name": "rockerarm",
       "quad": "./meshes/rockerarm_quad.obj",
       "primal": "./meshes/rockerarm_primal_layout.obj",
       "dual": "./meshes/rockerarm_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/rockerarm.png"
-    },
-    {
-      "id": "rockerarm_remesh",
-      "name": "rockerarm_remesh",
-      "quad": "./meshes/rockerarm_remesh_quad.obj",
-      "primal": "./meshes/rockerarm_remesh_primal_layout.obj",
-      "dual": "./meshes/rockerarm_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/rockerarm_remesh.png"
     },
     {
       "id": "rod_remesh",
@@ -2529,14 +2281,6 @@
       "thumbnail": "./meshes/thumbnails/rolling_stage100K.png"
     },
     {
-      "id": "rolling_stage100K_remesh",
-      "name": "rolling_stage100K_remesh",
-      "quad": "./meshes/rolling_stage100K_remesh_quad.obj",
-      "primal": "./meshes/rolling_stage100K_remesh_primal_layout.obj",
-      "dual": "./meshes/rolling_stage100K_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/rolling_stage100K_remesh.png"
-    },
-    {
       "id": "santa",
       "name": "santa",
       "quad": "./meshes/santa_quad.obj",
@@ -2545,28 +2289,12 @@
       "thumbnail": "./meshes/thumbnails/santa.png"
     },
     {
-      "id": "santa_remesh",
-      "name": "santa_remesh",
-      "quad": "./meshes/santa_remesh_quad.obj",
-      "primal": "./meshes/santa_remesh_primal_layout.obj",
-      "dual": "./meshes/santa_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/santa_remesh.png"
-    },
-    {
       "id": "screwdriver",
       "name": "screwdriver",
       "quad": "./meshes/screwdriver_quad.obj",
       "primal": "./meshes/screwdriver_primal_layout.obj",
       "dual": "./meshes/screwdriver_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/screwdriver.png"
-    },
-    {
-      "id": "screwdriver_remesh",
-      "name": "screwdriver_remesh",
-      "quad": "./meshes/screwdriver_remesh_quad.obj",
-      "primal": "./meshes/screwdriver_remesh_primal_layout.obj",
-      "dual": "./meshes/screwdriver_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/screwdriver_remesh.png"
     },
     {
       "id": "sculpt_remesh",
@@ -2585,28 +2313,12 @@
       "thumbnail": "./meshes/thumbnails/seahorse2_100K.png"
     },
     {
-      "id": "seahorse2_100K_remesh",
-      "name": "seahorse2_100K_remesh",
-      "quad": "./meshes/seahorse2_100K_remesh_quad.obj",
-      "primal": "./meshes/seahorse2_100K_remesh_primal_layout.obj",
-      "dual": "./meshes/seahorse2_100K_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/seahorse2_100K_remesh.png"
-    },
-    {
       "id": "shark",
       "name": "shark",
       "quad": "./meshes/shark_quad.obj",
       "primal": "./meshes/shark_primal_layout.obj",
       "dual": "./meshes/shark_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/shark.png"
-    },
-    {
-      "id": "shark_remesh",
-      "name": "shark_remesh",
-      "quad": "./meshes/shark_remesh_quad.obj",
-      "primal": "./meshes/shark_remesh_primal_layout.obj",
-      "dual": "./meshes/shark_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/shark_remesh.png"
     },
     {
       "id": "sharp_sphere10k_remesh",
@@ -2705,22 +2417,6 @@
       "thumbnail": "./meshes/thumbnails/sydney-tri_remesh.png"
     },
     {
-      "id": "sydney_remesh",
-      "name": "sydney_remesh",
-      "quad": "./meshes/sydney_remesh_quad.obj",
-      "primal": "./meshes/sydney_remesh_primal_layout.obj",
-      "dual": "./meshes/sydney_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/sydney_remesh.png"
-    },
-    {
-      "id": "teapot",
-      "name": "teapot",
-      "quad": "./meshes/teapot_quad.obj",
-      "primal": "./meshes/teapot_primal_layout.obj",
-      "dual": "./meshes/teapot_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/teapot.png"
-    },
-    {
       "id": "teapot_remesh",
       "name": "teapot_remesh",
       "quad": "./meshes/teapot_remesh_quad.obj",
@@ -2737,28 +2433,12 @@
       "thumbnail": "./meshes/thumbnails/thai_statue.png"
     },
     {
-      "id": "thai_statue_remesh",
-      "name": "thai_statue_remesh",
-      "quad": "./meshes/thai_statue_remesh_quad.obj",
-      "primal": "./meshes/thai_statue_remesh_primal_layout.obj",
-      "dual": "./meshes/thai_statue_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/thai_statue_remesh.png"
-    },
-    {
       "id": "three_peaks",
       "name": "three_peaks",
       "quad": "./meshes/three_peaks_quad.obj",
       "primal": "./meshes/three_peaks_primal_layout.obj",
       "dual": "./meshes/three_peaks_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/three_peaks.png"
-    },
-    {
-      "id": "three_peaks_remesh",
-      "name": "three_peaks_remesh",
-      "quad": "./meshes/three_peaks_remesh_quad.obj",
-      "primal": "./meshes/three_peaks_remesh_primal_layout.obj",
-      "dual": "./meshes/three_peaks_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/three_peaks_remesh.png"
     },
     {
       "id": "toilet_remesh",
@@ -2793,30 +2473,6 @@
       "thumbnail": "./meshes/thumbnails/torso.png"
     },
     {
-      "id": "torso_remesh",
-      "name": "torso_remesh",
-      "quad": "./meshes/torso_remesh_quad.obj",
-      "primal": "./meshes/torso_remesh_primal_layout.obj",
-      "dual": "./meshes/torso_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/torso_remesh.png"
-    },
-    {
-      "id": "torus-filled_remesh",
-      "name": "torus-filled_remesh",
-      "quad": "./meshes/torus-filled_remesh_quad.obj",
-      "primal": "./meshes/torus-filled_remesh_primal_layout.obj",
-      "dual": "./meshes/torus-filled_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/torus-filled_remesh.png"
-    },
-    {
-      "id": "torus-filled_remesh_new",
-      "name": "torus-filled_remesh_new",
-      "quad": "./meshes/torus-filled_remesh_new_quad.obj",
-      "primal": "./meshes/torus-filled_remesh_new_primal_layout.obj",
-      "dual": "./meshes/torus-filled_remesh_new_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/torus-filled_remesh_new.png"
-    },
-    {
       "id": "torus-simple_remesh",
       "name": "torus-simple_remesh",
       "quad": "./meshes/torus-simple_remesh_quad.obj",
@@ -2847,22 +2503,6 @@
       "primal": "./meshes/trebol_primal_layout.obj",
       "dual": "./meshes/trebol_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/trebol.png"
-    },
-    {
-      "id": "trebol_remesh",
-      "name": "trebol_remesh",
-      "quad": "./meshes/trebol_remesh_quad.obj",
-      "primal": "./meshes/trebol_remesh_primal_layout.obj",
-      "dual": "./meshes/trebol_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/trebol_remesh.png"
-    },
-    {
-      "id": "trim-star_remesh",
-      "name": "trim-star_remesh",
-      "quad": "./meshes/trim-star_remesh_quad.obj",
-      "primal": "./meshes/trim-star_remesh_primal_layout.obj",
-      "dual": "./meshes/trim-star_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/trim-star_remesh.png"
     },
     {
       "id": "trim_star_14k_remesh",
@@ -2905,14 +2545,6 @@
       "thumbnail": "./meshes/thumbnails/twirl20k_remesh.png"
     },
     {
-      "id": "twirl_remesh",
-      "name": "twirl_remesh",
-      "quad": "./meshes/twirl_remesh_quad.obj",
-      "primal": "./meshes/twirl_remesh_primal_layout.obj",
-      "dual": "./meshes/twirl_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/twirl_remesh.png"
-    },
-    {
       "id": "ujoint",
       "name": "ujoint",
       "quad": "./meshes/ujoint_quad.obj",
@@ -2921,28 +2553,12 @@
       "thumbnail": "./meshes/thumbnails/ujoint.png"
     },
     {
-      "id": "ujoint_remesh",
-      "name": "ujoint_remesh",
-      "quad": "./meshes/ujoint_remesh_quad.obj",
-      "primal": "./meshes/ujoint_remesh_primal_layout.obj",
-      "dual": "./meshes/ujoint_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/ujoint_remesh.png"
-    },
-    {
       "id": "uu-memento100k",
       "name": "uu-memento100k",
       "quad": "./meshes/uu-memento100k_quad.obj",
       "primal": "./meshes/uu-memento100k_primal_layout.obj",
       "dual": "./meshes/uu-memento100k_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/uu-memento100k.png"
-    },
-    {
-      "id": "uu-memento100k_remesh",
-      "name": "uu-memento100k_remesh",
-      "quad": "./meshes/uu-memento100k_remesh_quad.obj",
-      "primal": "./meshes/uu-memento100k_remesh_primal_layout.obj",
-      "dual": "./meshes/uu-memento100k_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/uu-memento100k_remesh.png"
     },
     {
       "id": "vase-lion",
@@ -2961,28 +2577,12 @@
       "thumbnail": "./meshes/thumbnails/vase-lion100K.png"
     },
     {
-      "id": "vase-lion100K_remesh",
-      "name": "vase-lion100K_remesh",
-      "quad": "./meshes/vase-lion100K_remesh_quad.obj",
-      "primal": "./meshes/vase-lion100K_remesh_primal_layout.obj",
-      "dual": "./meshes/vase-lion100K_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/vase-lion100K_remesh.png"
-    },
-    {
       "id": "vase",
       "name": "vase",
       "quad": "./meshes/vase_quad.obj",
       "primal": "./meshes/vase_primal_layout.obj",
       "dual": "./meshes/vase_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/vase.png"
-    },
-    {
-      "id": "vase0",
-      "name": "vase0",
-      "quad": "./meshes/vase0_quad.obj",
-      "primal": "./meshes/vase0_primal_layout.obj",
-      "dual": "./meshes/vase0_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/vase0.png"
     },
     {
       "id": "vase0_remesh",
@@ -2993,36 +2593,12 @@
       "thumbnail": "./meshes/thumbnails/vase0_remesh.png"
     },
     {
-      "id": "vase100K",
-      "name": "vase100K",
-      "quad": "./meshes/vase100K_quad.obj",
-      "primal": "./meshes/vase100K_primal_layout.obj",
-      "dual": "./meshes/vase100K_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/vase100K.png"
-    },
-    {
       "id": "vase100K_remesh",
       "name": "vase100K_remesh",
       "quad": "./meshes/vase100K_remesh_quad.obj",
       "primal": "./meshes/vase100K_remesh_primal_layout.obj",
       "dual": "./meshes/vase100K_remesh_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/vase100K_remesh.png"
-    },
-    {
-      "id": "vase_remesh",
-      "name": "vase_remesh",
-      "quad": "./meshes/vase_remesh_quad.obj",
-      "primal": "./meshes/vase_remesh_primal_layout.obj",
-      "dual": "./meshes/vase_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/vase_remesh.png"
-    },
-    {
-      "id": "venus",
-      "name": "venus",
-      "quad": "./meshes/venus_quad.obj",
-      "primal": "./meshes/venus_primal_layout.obj",
-      "dual": "./meshes/venus_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/venus.png"
     },
     {
       "id": "venus_remesh",
@@ -3063,14 +2639,6 @@
       "primal": "./meshes/woodenfish_primal_layout.obj",
       "dual": "./meshes/woodenfish_dual_layout.obj",
       "thumbnail": "./meshes/thumbnails/woodenfish.png"
-    },
-    {
-      "id": "woodenfish_remesh",
-      "name": "woodenfish_remesh",
-      "quad": "./meshes/woodenfish_remesh_quad.obj",
-      "primal": "./meshes/woodenfish_remesh_primal_layout.obj",
-      "dual": "./meshes/woodenfish_remesh_dual_layout.obj",
-      "thumbnail": "./meshes/thumbnails/woodenfish_remesh.png"
     },
     {
       "id": "wrench50K_remesh",
