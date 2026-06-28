@@ -8,24 +8,67 @@ const emptyViewport = document.getElementById("empty-viewport");
 let allMeshes = [];
 let selectedId = null;
 
+function getConfigFilename() {
+  const path = window.location.pathname;
+  const pageName = path.split("/").pop();
+  if (!pageName || pageName === "index.html") {
+    return "./config.json";
+  }
+  const baseName = pageName.replace(/\.html$/i, "");
+  return `./config-${baseName}.json`;
+}
+
 async function loadConfig() {
+  const specificUrl = getConfigFilename();
+  try {
+    const res = await fetch(specificUrl);
+    if (!res.ok) throw new Error("not found");
+    const cfg = await res.json();
+    applyConfig(cfg);
+    return;
+  } catch (e) {
+    // fall through to generic config below
+  }
+
   try {
     const res = await fetch("./config.json");
     const cfg = await res.json();
-    if (cfg.pageTitle) {
-      document.getElementById("page-title").textContent = cfg.pageTitle;
-      document.title = cfg.pageTitle;
-    }
-    if (cfg.subtitle) {
-      document.getElementById("page-subtitle").textContent = cfg.subtitle;
-    }
+    applyConfig(cfg);
   } catch (e) {
     console.warn("No config.json found, using defaults.");
   }
 }
 
+function applyConfig(cfg) {
+  if (cfg.pageTitle) {
+    document.getElementById("page-title").textContent = cfg.pageTitle;
+    document.title = cfg.pageTitle;
+  }
+  if (cfg.subtitle) {
+    document.getElementById("page-subtitle").textContent = cfg.subtitle;
+  }
+}
+
+function getManifestFilename() {
+  // Determine which manifest to load based on the current HTML page name.
+  // index.html (or "/") -> meshes/manifest.json
+  // organic.html        -> meshes/manifest-organic.json
+  // mechanical.html      -> meshes/manifest-mechanical.json
+  // etc.
+  const path = window.location.pathname;
+  const pageName = path.split("/").pop(); // e.g. "organic.html" or ""
+
+  if (!pageName || pageName === "index.html") {
+    return "./meshes/manifest.json";
+  }
+
+  const baseName = pageName.replace(/\.html$/i, "");
+  return `./meshes/manifest-${baseName}.json`;
+}
+
 async function loadManifest() {
-  const res = await fetch("./meshes/manifest.json");
+  const manifestUrl = getManifestFilename();
+  const res = await fetch(manifestUrl);
   const data = await res.json();
   allMeshes = data.meshes || [];
   countEl.textContent = `${allMeshes.length} mesh${allMeshes.length === 1 ? "" : "es"}`;

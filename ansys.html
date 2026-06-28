@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quad Viewer</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="title-block">
+        <h1 id="page-title">Mesh Viewer</h1>
+        <span class="subtitle" id="page-subtitle">Tris / Quad tessellation comparison</span>
+      </div>
+      <span class="mesh-count" id="mesh-count">0 meshes</span>
+    </header>
+
+    <aside id="sidebar">
+      <div id="search-wrap">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="search mesh name..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div id="mesh-list"></div>
+    </aside>
+
+    <main id="viewport-wrap">
+      <canvas id="viewport"></canvas>
+
+      <div id="hud">
+        <div class="hud-pill" id="mesh-name-pill">no mesh selected</div>
+        <div class="mode-switch">
+          <button class="mode-btn" data-mode="quad">Quad</button>
+          <button class="mode-btn" data-mode="primal">Primal</button>
+          <button class="mode-btn" data-mode="dual">Dual</button>
+        </div>
+      </div>
+
+      <div id="hint">
+        drag to orbit · scroll to zoom · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> to switch quad / primal / dual
+        <span class="hint-sep">·</span> viewing: <span class="mode-tag" id="mode-tag">QUAD</span>
+      </div>
+
+      <div id="loading-overlay">loading mesh…</div>
+
+      <div id="empty-viewport">
+        select a mesh from the panel on the left to begin
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/viewer.js"></script>
+  <script type="module" src="./js/sidebar.js"></script>
+</body>
+</html>
