@@ -41,15 +41,19 @@ function initThree() {
   controls.staticMoving = false;
   controls.dynamicDampingFactor = 0.15;
 
-  // Light, neutral lighting for a white background scene
+  // Light, neutral lighting for a white background scene.
+  // Directional lights are attached to the camera (not the world) so they
+  // always illuminate the mesh from the viewer's perspective, regardless
+  // of how the trackball has rotated the object.
   const hemi = new THREE.HemisphereLight(0xffffff, 0xcfcfcf, 1.2);
   scene.add(hemi);
   const dir1 = new THREE.DirectionalLight(0xffffff, 0.7);
   dir1.position.set(3, 5, 4);
-  scene.add(dir1);
+  camera.add(dir1);
   const dir2 = new THREE.DirectionalLight(0xffffff, 0.4);
   dir2.position.set(-4, -2, -3);
-  scene.add(dir2);
+  camera.add(dir2);
+  scene.add(camera); // camera must be in the scene graph for its child lights to render
 
   window.addEventListener("resize", onResize);
   onResize();
