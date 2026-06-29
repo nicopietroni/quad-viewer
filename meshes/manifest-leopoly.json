@@ -1,0 +1,92 @@
+{
+  "meshes": [
+    {
+      "id": "T-rex",
+      "name": "T-rex",
+      "quad": "./meshes/T-rex_quad.obj",
+      "primal": "./meshes/T-rex_primal_layout.obj",
+      "dual": "./meshes/T-rex_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/T-rex.png"
+    },
+    {
+      "id": "dragon",
+      "name": "dragon",
+      "quad": "./meshes/dragon_quad.obj",
+      "primal": "./meshes/dragon_primal_layout.obj",
+      "dual": "./meshes/dragon_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/dragon.png"
+    },
+    {
+      "id": "perseus_body",
+      "name": "perseus_body",
+      "quad": "./meshes/perseus_body_quad.obj",
+      "primal": "./meshes/perseus_body_primal_layout.obj",
+      "dual": "./meshes/perseus_body_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_body.png"
+    },
+    {
+      "id": "perseus_ear_0",
+      "name": "perseus_ear_0",
+      "quad": "./meshes/perseus_ear_0_quad.obj",
+      "primal": "./meshes/perseus_ear_0_primal_layout.obj",
+      "dual": "./meshes/perseus_ear_0_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_ear_0.png"
+    },
+    {
+      "id": "perseus_ear_1",
+      "name": "perseus_ear_1",
+      "quad": "./meshes/perseus_ear_1_quad.obj",
+      "primal": "./meshes/perseus_ear_1_primal_layout.obj",
+      "dual": "./meshes/perseus_ear_1_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_ear_1.png"
+    },
+    {
+      "id": "perseus_hair",
+      "name": "perseus_hair",
+      "quad": "./meshes/perseus_hair_quad.obj",
+      "primal": "./meshes/perseus_hair_primal_layout.obj",
+      "dual": "./meshes/perseus_hair_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_hair.png"
+    },
+    {
+      "id": "perseus_head",
+      "name": "perseus_head",
+      "quad": "./meshes/perseus_head_quad.obj",
+      "primal": "./meshes/perseus_head_primal_layout.obj",
+      "dual": "./meshes/perseus_head_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_head.png"
+    },
+    {
+      "id": "perseus_tail",
+      "name": "perseus_tail",
+      "quad": "./meshes/perseus_tail_quad.obj",
+      "primal": "./meshes/perseus_tail_primal_layout.obj",
+      "dual": "./meshes/perseus_tail_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_tail.png"
+    },
+    {
+      "id": "perseus_wing0",
+      "name": "perseus_wing0",
+      "quad": "./meshes/perseus_wing0_quad.obj",
+      "primal": "./meshes/perseus_wing0_primal_layout.obj",
+      "dual": "./meshes/perseus_wing0_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_wing0.png"
+    },
+    {
+      "id": "perseus_wing1",
+      "name": "perseus_wing1",
+      "quad": "./meshes/perseus_wing1_quad.obj",
+      "primal": "./meshes/perseus_wing1_primal_layout.obj",
+      "dual": "./meshes/perseus_wing1_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/perseus_wing1.png"
+    },
+    {
+      "id": "Basemesh",
+      "name": "Basemesh",
+      "quad": "./meshes/Basemesh_quad.obj",
+      "primal": "./meshes/Basemesh_primal_layout.obj",
+      "dual": "./meshes/Basemesh_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/Basemesh.png"
+    }
+  ]
+}

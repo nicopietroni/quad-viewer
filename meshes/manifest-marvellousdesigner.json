@@ -1,0 +1,84 @@
+{
+  "meshes": [
+    {
+      "id": "00_front_3d",
+      "name": "00_front_3d",
+      "quad": "./meshes/00_front_3d_quad.obj",
+      "primal": "./meshes/00_front_3d_primal_layout.obj",
+      "dual": "./meshes/00_front_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/00_front_3d.png"
+    },
+    {
+      "id": "00_sleeve_3d",
+      "name": "00_sleeve_3d",
+      "quad": "./meshes/00_sleeve_3d_quad.obj",
+      "primal": "./meshes/00_sleeve_3d_primal_layout.obj",
+      "dual": "./meshes/00_sleeve_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/00_sleeve_3d.png"
+    },
+    {
+      "id": "01_back_3d",
+      "name": "01_back_3d",
+      "quad": "./meshes/01_back_3d_quad.obj",
+      "primal": "./meshes/01_back_3d_primal_layout.obj",
+      "dual": "./meshes/01_back_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/01_back_3d.png"
+    },
+    {
+      "id": "02_back_3d",
+      "name": "02_back_3d",
+      "quad": "./meshes/02_back_3d_quad.obj",
+      "primal": "./meshes/02_back_3d_primal_layout.obj",
+      "dual": "./meshes/02_back_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/02_back_3d.png"
+    },
+    {
+      "id": "02_front_3d",
+      "name": "02_front_3d",
+      "quad": "./meshes/02_front_3d_quad.obj",
+      "primal": "./meshes/02_front_3d_primal_layout.obj",
+      "dual": "./meshes/02_front_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/02_front_3d.png"
+    },
+    {
+      "id": "03_back_3d",
+      "name": "03_back_3d",
+      "quad": "./meshes/03_back_3d_quad.obj",
+      "primal": "./meshes/03_back_3d_primal_layout.obj",
+      "dual": "./meshes/03_back_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/03_back_3d.png"
+    },
+    {
+      "id": "03_frontA_3d",
+      "name": "03_frontA_3d",
+      "quad": "./meshes/03_frontA_3d_quad.obj",
+      "primal": "./meshes/03_frontA_3d_primal_layout.obj",
+      "dual": "./meshes/03_frontA_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/03_frontA_3d.png"
+    },
+    {
+      "id": "03_frontB_3d",
+      "name": "03_frontB_3d",
+      "quad": "./meshes/03_frontB_3d_quad.obj",
+      "primal": "./meshes/03_frontB_3d_primal_layout.obj",
+      "dual": "./meshes/03_frontB_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/03_frontB_3d.png"
+    },
+    {
+      "id": "04_back_3d",
+      "name": "04_back_3d",
+      "quad": "./meshes/04_back_3d_quad.obj",
+      "primal": "./meshes/04_back_3d_primal_layout.obj",
+      "dual": "./meshes/04_back_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/04_back_3d.png"
+    },
+    {
+      "id": "04_front_3d",
+      "name": "04_front_3d",
+      "quad": "./meshes/04_front_3d_quad.obj",
+      "primal": "./meshes/04_front_3d_primal_layout.obj",
+      "dual": "./meshes/04_front_3d_dual_layout.obj",
+      "thumbnail": "./meshes/thumbnails/04_front_3d.png"
+    }
+  ]
+}
