@@ -256,6 +256,21 @@ html, body {
   color: var(--text-primary);
 }
 
+.download-btn {
+  display: none;
+  margin-left: 6px;
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.download-btn.visible {
+  display: inline-block;
+}
+
+.download-btn:hover {
+  background: var(--bg-selected);
+}
+
 .mode-btn.active {
   background: var(--bg-selected);
   border-color: var(--accent);

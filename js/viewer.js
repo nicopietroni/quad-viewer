@@ -8,6 +8,7 @@ const emptyViewport = document.getElementById("empty-viewport");
 const modeTagEl = document.getElementById("mode-tag");
 const meshNameEl = document.getElementById("mesh-name-pill");
 const modeButtons = Array.from(document.querySelectorAll(".mode-btn"));
+const downloadBtn = document.getElementById("download-btn");
 
 const MODE_FIELD = {
   quad: "quad",
@@ -60,8 +61,11 @@ function initThree() {
   animate();
 
   modeButtons.forEach((btn) => {
+    if (btn.id === "download-btn") return; // not a mode-switch button
     btn.addEventListener("click", () => setMode(btn.dataset.mode));
   });
+
+  downloadBtn.addEventListener("click", downloadCurrentQuadObj);
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "1") setMode("quad");
@@ -273,7 +277,6 @@ async function buildLayoutGroup(url, solidColor) {
 }
 
 function frameCameraOnObject(object) {
-  console.warn("frameCameraOnObject CALLED", new Error().stack);
   const box = new THREE.Box3().setFromObject(object);
   if (box.isEmpty()) return;
   const size = new THREE.Vector3();
@@ -303,6 +306,7 @@ function clearCurrent() {
 
 function updateModeButtons() {
   modeButtons.forEach((btn) => {
+    if (btn.id === "download-btn") return; // handled separately below
     const mode = btn.dataset.mode;
     const available = !!(currentMeshEntry && currentMeshEntry[MODE_FIELD[mode]]);
     btn.classList.toggle("active", mode === currentMode);
@@ -310,6 +314,23 @@ function updateModeButtons() {
     btn.disabled = !available;
   });
   modeTagEl.textContent = currentMode.toUpperCase();
+
+  // Download button: visible only while viewing the quad mesh.
+  const showDownload = currentMode === "quad" && !!(currentMeshEntry && currentMeshEntry.quad);
+  downloadBtn.classList.toggle("visible", showDownload);
+}
+
+function downloadCurrentQuadObj() {
+  if (!currentMeshEntry || !currentMeshEntry.quad) return;
+  const url = currentMeshEntry.quad;
+  const filename = url.split("/").pop();
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 async function buildGroupForMode(entry, mode) {
