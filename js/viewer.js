@@ -49,10 +49,10 @@ function initThree() {
   const hemi = new THREE.HemisphereLight(0xffffff, 0xcfcfcf, 1.2);
   scene.add(hemi);
   const dir1 = new THREE.DirectionalLight(0xffffff, 0.7);
-  dir1.position.set(3, 5, 4);
+  dir1.position.set(300, 500, 400); // far enough that zoom doesn't change its effective direction
   camera.add(dir1);
   const dir2 = new THREE.DirectionalLight(0xffffff, 0.4);
-  dir2.position.set(-4, -2, -3);
+  dir2.position.set(-400, -200, -300);
   camera.add(dir2);
   scene.add(camera); // camera must be in the scene graph for its child lights to render
 
@@ -65,7 +65,9 @@ function initThree() {
     btn.addEventListener("click", () => setMode(btn.dataset.mode));
   });
 
-  downloadBtn.addEventListener("click", downloadCurrentQuadObj);
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", downloadCurrentQuadObj);
+  }
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "1") setMode("quad");
@@ -200,30 +202,85 @@ function buildBoundaryLineSegments(parsed, color) {
 }
 
 // ---- Mode "quad": flat-shaded triangulated solid + true quad-perimeter wireframe ----
+// Build a triangulated BufferGeometry directly from the parsed face list,
+// assigning a SINGLE averaged normal to all vertices of each original
+// polygon (quad). This avoids the per-triangle normal discontinuity that
+// Three.js's default triangulation + computeVertexNormals() would produce
+// across the invisible diagonal inside each quad.
+function buildFlatPerPolygonGeometry(parsed) {
+  const { vertices, faces } = parsed;
+  const positions = [];
+  const normals = [];
+
+  const getVertex = (i) => [vertices[i * 3], vertices[i * 3 + 1], vertices[i * 3 + 2]];
+
+  const subtract = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+  const cross = (a, b) => [
+    a[1] * b[2] - a[2] * b[1],
+    a[2] * b[0] - a[0] * b[2],
+    a[0] * b[1] - a[1] * b[0],
+  ];
+  const normalize = (v) => {
+    const len = Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]) || 1;
+    return [v[0] / len, v[1] / len, v[2] / len];
+  };
+
+  for (const face of faces) {
+    const n = face.length;
+    if (n < 3) continue;
+
+    const pts = face.map((idx) => getVertex(idx));
+
+    // Triangle-fan triangulation (same scheme OBJLoader would use for n>3),
+    // but here we compute ONE normal for the whole polygon by averaging
+    // the per-triangle normals of the fan, then reuse it for every vertex.
+    let avgNormal = [0, 0, 0];
+    let triCount = 0;
+    for (let i = 1; i < n - 1; i++) {
+      const e1 = subtract(pts[i], pts[0]);
+      const e2 = subtract(pts[i + 1], pts[0]);
+      const triNormal = normalize(cross(e1, e2));
+      avgNormal[0] += triNormal[0];
+      avgNormal[1] += triNormal[1];
+      avgNormal[2] += triNormal[2];
+      triCount++;
+    }
+    if (triCount > 0) {
+      avgNormal = normalize(avgNormal);
+    }
+
+    for (let i = 1; i < n - 1; i++) {
+      const tri = [pts[0], pts[i], pts[i + 1]];
+      for (const p of tri) {
+        positions.push(p[0], p[1], p[2]);
+        normals.push(avgNormal[0], avgNormal[1], avgNormal[2]);
+      }
+    }
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  geo.setAttribute("normal", new THREE.Float32BufferAttribute(normals, 3));
+  return geo;
+}
+
 async function buildQuadGroup(url) {
   const group = new THREE.Group();
 
-  const loader = new OBJLoader();
-  const raw = await loader.loadAsync(url);
-  raw.traverse((child) => {
-    if (child.isMesh && child.geometry) {
-      const geo = child.geometry.clone();
-      geo.computeVertexNormals();
-      const solidMat = new THREE.MeshStandardMaterial({
-        color: 0xe2e4e2,
-        flatShading: true,
-        roughness: 1.0,
-        metalness: 0.0,
-        side: THREE.DoubleSide,
-        polygonOffset: true,
-        polygonOffsetFactor: 1,
-        polygonOffsetUnits: 1,
-      });
-      group.add(new THREE.Mesh(geo, solidMat));
-    }
-  });
-
   const parsed = await parseOBJFaces(url);
+  const geo = buildFlatPerPolygonGeometry(parsed);
+
+  const solidMat = new THREE.MeshStandardMaterial({
+    color: 0xe2e4e2,
+    roughness: 1.0,
+    metalness: 0.0,
+    side: THREE.DoubleSide,
+    polygonOffset: true,
+    polygonOffsetFactor: 1,
+    polygonOffsetUnits: 1,
+  });
+  group.add(new THREE.Mesh(geo, solidMat));
+
   const perimeter = buildPerimeterLineSegments(parsed, 0x1c1c1a);
   group.add(perimeter);
 
@@ -317,7 +374,9 @@ function updateModeButtons() {
 
   // Download button: visible only while viewing the quad mesh.
   const showDownload = currentMode === "quad" && !!(currentMeshEntry && currentMeshEntry.quad);
-  downloadBtn.classList.toggle("visible", showDownload);
+  if (downloadBtn) {
+    downloadBtn.classList.toggle("visible", showDownload);
+  }
 }
 
 function downloadCurrentQuadObj() {
