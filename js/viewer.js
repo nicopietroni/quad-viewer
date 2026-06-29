@@ -273,6 +273,7 @@ async function buildLayoutGroup(url, solidColor) {
 }
 
 function frameCameraOnObject(object) {
+  console.warn("frameCameraOnObject CALLED", new Error().stack);
   const box = new THREE.Box3().setFromObject(object);
   if (box.isEmpty()) return;
   const size = new THREE.Vector3();
@@ -353,7 +354,8 @@ export async function setMode(mode) {
     currentMode = mode;
     scene.add(currentGroup);
     updateModeButtons();
-    frameCameraOnObject(currentGroup);
+    // Note: camera is intentionally NOT reframed here -- switching between
+    // quad/primal/dual should preserve the user's current zoom/orientation.
   } catch (err) {
     console.error("Failed to switch mode", mode, err);
   } finally {
